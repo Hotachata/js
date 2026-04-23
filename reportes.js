@@ -17,8 +17,25 @@ const reporteSprints = [
         sprint: 2,
         bugs: [
             { id: "B1", severidad: "alta", resuelto: false },
-            { id: "B2", severidad: "media", resuelto: false }
+            { id: "B2", severidad: "media", resuelto: false },
+            { id: "B3", severidad: "alta", resuelto: false }
         ]
     }
 ];
 
+// conteo total de bugs con severidad alta y no resueltos
+function contarBugsCriticos(reporteSprints) {
+    let contador=0;
+
+    reporteSprints.forEach((sprint) => {
+        sprint.bugs.forEach((bug) => {
+            if (bug.severidad === "alta" && bug.resuelto === false){
+                contador+=1
+            }
+        })
+    })
+
+    return contador
+}
+
+console.log(contarBugsCriticos(reporteSprints))
